@@ -12,6 +12,7 @@ wk.register({
   [","] = { "<Cmd>BufferPrevious<CR>", "Buffer Previous" },
   ["."] = { "<Cmd>BufferNext<CR>", "Buffer Next" },
   ["/"] = { "<Plug>NERDCommenterToggle", "Toggle Comment" },
+  ["<leader>"] = { "<cmd>source $MYVIMRC<cr>", "Reload config" },
 
   h = {
     name = "Harpoon",
@@ -49,7 +50,7 @@ wk.register({
   t = {
     name = "Term",
     f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
-    t = { "<cmd>ToggleTerm<cr>", "Float" },
+    t = { "<cmd>ToggleTerm<cr>", "Terminal" },
   },
   b = {
     name = "Barbar",
@@ -60,3 +61,4 @@ wk.register({
 
 vim.api.nvim_set_keymap('n', '..', '<cmd>NeoTreeFloatToggle<cr>', { silent = true })
 vim.api.nvim_set_keymap('n', ',,', '<cmd>Telescope find_files<cr>', { silent = true })
+vim.api.nvim_set_keymap('n', '--', '<cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>', { silent = true })
