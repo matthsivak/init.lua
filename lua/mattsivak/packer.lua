@@ -45,7 +45,10 @@ return require('packer').startup(function(use)
     }
   }
 
-  use { "mhinz/vim-startify" }
+  use {
+    'goolord/alpha-nvim',
+    requires = { 'nvim-tree/nvim-web-devicons', 'BlakeJC94/alpha-nvim-fortune' },
+  }
 
   use {
     'phaazon/hop.nvim',
@@ -83,6 +86,16 @@ return require('packer').startup(function(use)
 
   -- Utility
 
+  use 'christoomey/vim-tmux-navigator'
+
+
+  use {
+    'VonHeikemen/fine-cmdline.nvim',
+    requires = {
+      { 'MunifTanjim/nui.nvim' }
+    }
+  }
+
   use 'preservim/nerdcommenter'
 
   use { "akinsho/toggleterm.nvim", tag = '*', config = function()
@@ -99,6 +112,10 @@ return require('packer').startup(function(use)
     config = function() require("nvim-autopairs").setup {} end
   }
 
+  -- FUN
+
+  --use 'andweeb/presence.nvim'
+
   -- UI
 
   use {
@@ -108,7 +125,7 @@ return require('packer').startup(function(use)
 
   use 'nvim-tree/nvim-web-devicons' -- OPTIONAL: for file icons
   use 'lewis6991/gitsigns.nvim'     -- OPTIONAL: for git status
-  use 'romgrk/barbar.nvim'
+  --use 'romgrk/barbar.nvim'
 
   use 'xiyaowong/transparent.nvim'
 

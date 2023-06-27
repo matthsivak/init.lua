@@ -19,15 +19,18 @@ wk.register({
     a = { mark.add_file, "Add File" },
     t = { ui.toggle_quick_menu, "Toggle Quick Menu" }
   },
-
+  T = {
+    f = { "<cmd>Telescope find_files<cr>", "Find Files" },
+    g = { "<cmd>Telescope live_grep<cr>", "Live Grep" },
+    b = { "<cmd>Telescope buffers<cr>", "Buffers" },
+    h = { "<cmd>Telescope help_tags<cr>", "Help Tags" },
+  },
   f = {
     name = "File",
-    f = { "<cmd>Telescope find_files<cr>", "Find File" },
-    b = { "<cmd>Telescope buffers<cr>", "Find Buffer" },
-    e = { "<cmd>NeoTreeFloatToggle<cr>", "Neo Tree" },
     w = { "<cmd>w<cr>", "Write file" },
     u = { "<cmd>UndotreeToggle<cr>", "Undotree Toggle" },
     c = { "<cmd>CloakToggle<cr>", "Cloak Toggle" },
+    r = { "<cmd>qa<cr>", "Find Recent" }
   },
   l = {
     name = "LSP",
@@ -51,6 +54,10 @@ wk.register({
     name = "Term",
     f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
     t = { "<cmd>ToggleTerm<cr>", "Terminal" },
+    ["1"] = { "<cmd>ToggleTerm 1<cr>", "Terminal" },
+    ["2"] = { "<cmd>ToggleTerm 2<cr>", "Terminal" },
+    ["3"] = { "<cmd>ToggleTerm 3<cr>", "Terminal" },
+    ["4"] = { "<cmd>ToggleTerm 4<cr>", "Terminal" },
   },
   b = {
     name = "Barbar",
@@ -59,6 +66,30 @@ wk.register({
   }
 }, { prefix = "<leader>" })
 
-vim.api.nvim_set_keymap('n', '..', '<cmd>NeoTreeFloatToggle<cr>', { silent = true })
-vim.api.nvim_set_keymap('n', ',,', '<cmd>Telescope find_files<cr>', { silent = true })
-vim.api.nvim_set_keymap('n', '--', '<cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>', { silent = true })
+wk.register({
+  [","] = { "<cmd>Telescope find_files<cr>", "Find Files" },
+  ["."] = { "<cmd>Telescope live_grep<cr>", "Live Grep" },
+  ["-"] = { "<cmd>Telescope buffers<cr>", "Buffers" },
+  ["h"] = { "<cmd>Telescope help_tags<cr>", "Help Tags" },
+}, {
+  prefix = ","
+})
+
+wk.register({
+  ["-"] = { "<cmd>Neotree<cr>", "Neo Tree" },
+  [","] = { "<cmd>NeoTreeFloatToggle<cr>", "Neo Tree Float" },
+}, {
+  prefix = "-",
+})
+
+wk.register({
+  ["."] = { ui.toggle_quick_menu, "Harpoon List" },
+  ["ů"] = { mark.add_file, "Add File" },
+  [","] = { ui.nav_prev, "Previous" },
+  ["-"] = { ui.nav_next, "Next" }
+}, {
+  prefix = ".",
+})
+
+vim.api.nvim_set_keymap('n', '))', '<cmd>split<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', 'úú', '<cmd>vsplit<CR>', { noremap = true })

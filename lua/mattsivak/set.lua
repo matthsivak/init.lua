@@ -29,3 +29,5 @@ set.isfname:append("@-@")
 set.updatetime = 50
 
 set.clipboard = 'unnamedplus'
+
+set.cmdheight = 0
