@@ -31,3 +31,5 @@ set.updatetime = 50
 set.clipboard = 'unnamedplus'
 
 set.cmdheight = 0
+
+set.laststatus = 3
