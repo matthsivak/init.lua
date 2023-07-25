@@ -84,10 +84,25 @@ return require('packer').startup(function(use)
 
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
+  use {
+    "folke/trouble.nvim",
+    requires = { "nvim-tree/nvim-web-devicons" },
+  }
+
   -- Utility
 
   use 'christoomey/vim-tmux-navigator'
 
+  use({
+    'mrjones2014/dash.nvim',
+    run = 'make install',
+  })
+
+  -- Required for some plugins
+  use "kkharji/sqlite.lua"
+
+  -- or, to get rolling updates
+  use "mrjones2014/legendary.nvim"
 
   use {
     'VonHeikemen/fine-cmdline.nvim',
@@ -114,9 +129,14 @@ return require('packer').startup(function(use)
 
   -- FUN
 
-  --use 'andweeb/presence.nvim'
 
   -- UI
+
+  use { 'stevearc/dressing.nvim' }
+
+  use 'rcarriga/nvim-notify'
+
+  use { 'nvim-telescope/telescope-ui-select.nvim' }
 
   use {
     'nvim-lualine/lualine.nvim',

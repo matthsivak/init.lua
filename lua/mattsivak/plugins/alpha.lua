@@ -61,7 +61,7 @@ end
 local buttons = {
   type = "group",
   val = {
-    button("e", "New file", "<cmd>ene <CR>"),
+    button("e", "New file", "<cmd>ene<CR>"),
     button("SPC f f", "Find File"),
     button("SPC f b", "Find Buffer"),
     button("SPC f e", "Neo Tree"),

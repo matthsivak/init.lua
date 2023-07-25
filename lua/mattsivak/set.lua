@@ -1,5 +1,8 @@
 local set = vim.opt
 
+vim.o.vodam_aka_ada_is_funny = true
+-- :)
+
 set.nu = true
 set.relativenumber = true
 

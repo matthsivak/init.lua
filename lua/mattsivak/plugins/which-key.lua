@@ -43,6 +43,7 @@ wk.register({
     R = { function() vim.lsp.buf.references() end, "References" },
     r = { function() vim.lsp.buf.rename() end, "Rename" },
     S = { function() vim.lsp.buf.signature_help() end, "Signature help" },
+    t = { "<cmd>TroubleToggle<cr>", "Trouble list" }
   },
   p = {
     name = "Plugins",
