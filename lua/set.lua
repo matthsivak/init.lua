@@ -1,7 +1,8 @@
 local set = vim.opt
 
-vim.o.vodam_aka_ada_is_funny = true
--- :)
+vim.g.mapleader = " "
+
+vim.opt.termguicolors = true
 
 set.nu = true
 set.relativenumber = true
@@ -36,3 +37,6 @@ set.clipboard = 'unnamedplus'
 set.cmdheight = 0
 
 set.laststatus = 3
+
+vim.o.timeout = true
+vim.o.timeoutlen = 300

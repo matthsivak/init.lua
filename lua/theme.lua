@@ -1,13 +1,3 @@
-require("nightly").setup({
-  transparent = true,
-  styles = {
-    comments = { italic = true },
-    functions = { italic = false },
-    variables = { italic = false },
-    keywords = { italic = false },
-  },
-})
-
 function ColorMyNvim(color)
   color = color or "catppuccin"
 

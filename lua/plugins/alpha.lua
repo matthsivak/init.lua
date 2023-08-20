@@ -103,3 +103,4 @@ alpha.setup(config)
 vim.cmd([[
     autocmd FileType alpha setlocal nofoldenable
 ]])
+
