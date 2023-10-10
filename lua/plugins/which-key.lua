@@ -13,6 +13,17 @@ wk.register({
     g = { "<cmd>Telescope live_grep<cr>", "Live Grep" },
     b = { "<cmd>Telescope buffers<cr>", "Buffers" },
     h = { "<cmd>Telescope help_tags<cr>", "Help Tags" },
+    F = {
+      function()
+        local input_string = vim.fn.input("Search For > ")
+        if (input_string == '') then
+          return
+        end
+        require("telescope.builtin").grep_string({
+          search = input_string,
+        })
+      end, "Find in all files"
+    }
   },
   l = {
     name = "LSP",
