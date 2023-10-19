@@ -53,6 +53,13 @@ return require('packer').startup(function(use)
   use { 'stevearc/dressing.nvim' }
 
   use {
+    'VonHeikemen/fine-cmdline.nvim',
+    requires = {
+      { 'MunifTanjim/nui.nvim' }
+    }
+  }
+
+  use {
     'nvim-lualine/lualine.nvim',
     requires = { 'nvim-tree/nvim-web-devicons', opt = true }
   }
@@ -63,6 +70,9 @@ return require('packer').startup(function(use)
   }
 
   use 'rcarriga/nvim-notify'
+
+  -- SHARE
+  use 'https://github.com/jbyuki/instant.nvim'
 
   -- LSP
   use {

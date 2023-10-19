@@ -99,6 +99,16 @@ _G.packer_plugins = {
     path = "/Users/mattsivak/.local/share/nvim/site/pack/packer/start/dressing.nvim",
     url = "https://github.com/stevearc/dressing.nvim"
   },
+  ["fine-cmdline.nvim"] = {
+    loaded = true,
+    path = "/Users/mattsivak/.local/share/nvim/site/pack/packer/start/fine-cmdline.nvim",
+    url = "https://github.com/VonHeikemen/fine-cmdline.nvim"
+  },
+  ["instant.nvim"] = {
+    loaded = true,
+    path = "/Users/mattsivak/.local/share/nvim/site/pack/packer/start/instant.nvim",
+    url = "https://github.com/jbyuki/instant.nvim"
+  },
   ["lsp-zero.nvim"] = {
     loaded = true,
     path = "/Users/mattsivak/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",

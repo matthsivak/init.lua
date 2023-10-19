@@ -65,3 +65,4 @@ wk.register({
 
 vim.api.nvim_set_keymap('n', '))', '<cmd>split<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', 'úú', '<cmd>vsplit<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', ':', '<cmd>FineCmdline<CR>', { noremap = true })
