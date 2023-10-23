@@ -29,6 +29,12 @@ return require('packer').startup(function(use)
   -- THEME
   use { "catppuccin/nvim", as = "catppuccin" }
 
+  -- BROWSER
+  --use {
+  --'glacambre/firenvim',
+  --run = function() vim.fn['firenvim#install'](0) end
+  --}
+
   -- NAVIGATION
   use {
     "nvim-neo-tree/neo-tree.nvim",
@@ -86,6 +92,9 @@ return require('packer').startup(function(use)
 
       -- Autocompletion
       { 'hrsh7th/nvim-cmp' },
+      { 'hrsh7th/cmp-buffer' },
+      { 'hrsh7th/cmp-path' },
+      { 'hrsh7th/cmp-cmdline' },
       { 'hrsh7th/cmp-nvim-lsp' },
       { 'L3MON4D3/LuaSnip' },
     }

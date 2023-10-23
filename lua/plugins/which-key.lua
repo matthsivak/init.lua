@@ -50,7 +50,7 @@ wk.register({
 })
 
 wk.register({
-  ["-"] = { "<cmd>TroubleToggle<cr>", "Trouble List" },
+  ["-"] = { "<cmd>Neotree source=document_symbols position=current<cr>", "Document Symbols" },
   [","] = { "<cmd>LspStart<cr>", "Lsp Start" },
   ["."] = { "<cmd>LspStop<cr>", "Lsp Stop" },
 }, {
@@ -58,11 +58,13 @@ wk.register({
 })
 
 wk.register({
-  ["."] = { "<cmd>Neotree position=float<cr>", "Floating Files" },
+  ["."] = { "<cmd>Neotree reveal toggle source=last position=current<cr>", "Last Neotree" },
+  ["-"] = { "<cmd>Neotree source=buffers position=current<cr>", "Buffers" },
+  [","] = { "<cmd>Neotree source=files position=current<cr>", "Files" },
 }, {
   prefix = ".",
 })
 
 vim.api.nvim_set_keymap('n', '))', '<cmd>split<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', 'úú', '<cmd>vsplit<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', ':', '<cmd>FineCmdline<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<CR>', '<cmd>FineCmdline<CR>', { noremap = true })
