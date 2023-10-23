@@ -29,6 +29,10 @@ return require('packer').startup(function(use)
   -- THEME
   use { "catppuccin/nvim", as = "catppuccin" }
 
+  -- GIT STUFF
+  use { "lewis6991/gitsigns.nvim" }
+
+
   -- BROWSER
   --use {
   --'glacambre/firenvim',

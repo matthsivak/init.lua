@@ -119,6 +119,11 @@ _G.packer_plugins = {
     path = "/Users/mattsivak/.local/share/nvim/site/pack/packer/start/fine-cmdline.nvim",
     url = "https://github.com/VonHeikemen/fine-cmdline.nvim"
   },
+  ["gitsigns.nvim"] = {
+    loaded = true,
+    path = "/Users/mattsivak/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
+    url = "https://github.com/lewis6991/gitsigns.nvim"
+  },
   ["instant.nvim"] = {
     loaded = true,
     path = "/Users/mattsivak/.local/share/nvim/site/pack/packer/start/instant.nvim",
