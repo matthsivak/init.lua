@@ -36,33 +36,23 @@ wk.register({
     R = { function() vim.lsp.buf.references() end, "References" },
     r = { function() vim.lsp.buf.rename() end, "Rename" },
     S = { function() vim.lsp.buf.signature_help() end, "Signature help" },
-    t = { "<cmd>TroubleToggle<cr>", "Trouble List" }
+    t = { "<cmd>TroubleToggle<cr>", "Trouble List" },
+    D = { "<cmd>Neotree source=document_symbols position=current<cr>", "Document Symbols" },
+    m = {
+      [","] = { "<cmd>LspStart<cr>", "Lsp Start" },
+      ["."] = { "<cmd>LspStop<cr>", "Lsp Stop" },
+    }
   },
 }, { prefix = "<leader>" })
 
-wk.register({
-  [","] = { "<cmd>Telescope find_files<cr>", "Find Files" },
-  ["."] = { "<cmd>Telescope live_grep<cr>", "Live Grep" },
-  ["-"] = { "<cmd>Telescope buffers<cr>", "Buffers" },
-  ["h"] = { "<cmd>Telescope help_tags<cr>", "Help Tags" },
-}, {
-  prefix = ","
-})
+
 
 wk.register({
-  ["-"] = { "<cmd>Neotree source=document_symbols position=current<cr>", "Document Symbols" },
-  [","] = { "<cmd>LspStart<cr>", "Lsp Start" },
-  ["."] = { "<cmd>LspStop<cr>", "Lsp Stop" },
-}, {
-  prefix = "-",
-})
-
-wk.register({
-  ["."] = { "<cmd>Neotree reveal toggle source=last position=current<cr>", "Last Neotree" },
+  [","] = { "<cmd>Neotree reveal toggle source=last position=current<cr>", "Last Neotree" },
   ["-"] = { "<cmd>Neotree source=buffers position=current<cr>", "Buffers" },
-  [","] = { "<cmd>Neotree source=files position=current<cr>", "Files" },
+  ["."] = { "<cmd>Neotree source=files position=current<cr>", "Files" },
 }, {
-  prefix = ".",
+  prefix = ",",
 })
 
 vim.api.nvim_set_keymap('n', '))', '<cmd>split<CR>', { noremap = true })
