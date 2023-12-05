@@ -8,23 +8,6 @@ wk.register({
   ["<leader>"] = { "<cmd>source $MYVIMRC<cr>", "Reload config" },
 
   u = { "<cmd>UndotreeToggle<CR>", "Undotree" },
-  T = {
-    f = { "<cmd>Telescope find_files<cr>", "Find Files" },
-    g = { "<cmd>Telescope live_grep<cr>", "Live Grep" },
-    b = { "<cmd>Telescope buffers<cr>", "Buffers" },
-    h = { "<cmd>Telescope help_tags<cr>", "Help Tags" },
-    F = {
-      function()
-        local input_string = vim.fn.input("Search For > ")
-        if (input_string == '') then
-          return
-        end
-        require("telescope.builtin").grep_string({
-          search = input_string,
-        })
-      end, "Find in all files"
-    }
-  },
   l = {
     name = "LSP",
     f = { function() vim.lsp.buf.formatting() { async = true } end, "Format File" },
@@ -45,7 +28,34 @@ wk.register({
   },
 }, { prefix = "<leader>" })
 
+wk.register({
+  h = {
+    a = { function() require("harpoon.mark").add_file() end, "Add File" },
+    m = { function() require("harpoon.ui").toggle_quick_menu() end, "Opens Menu" },
+    n = { function() require("harpoon.ui").nav_next() end, "Next File" },
+    p = { function() require("harpoon.ui").nav_prev() end, "Prev File" },
+  },
+  t = {
 
+    f = { "<cmd>Telescope find_files<cr>", "Find Files" },
+    g = { "<cmd>Telescope live_grep<cr>", "Live Grep" },
+    b = { "<cmd>Telescope buffers<cr>", "Buffers" },
+    h = { "<cmd>Telescope help_tags<cr>", "Help Tags" },
+    F = {
+      function()
+        local input_string = vim.fn.input("Search For > ")
+        if (input_string == '') then
+          return
+        end
+        require("telescope.builtin").grep_string({
+          search = input_string,
+        })
+      end, "Find in all files"
+    }
+  }
+}, {
+  prefix = "v"
+})
 
 wk.register({
   [","] = { "<cmd>Neotree reveal toggle source=last position=current<cr>", "Last Neotree" },
@@ -55,6 +65,5 @@ wk.register({
   prefix = ",",
 })
 
-vim.api.nvim_set_keymap('n', '))', '<cmd>split<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', 'úú', '<cmd>vsplit<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<CR>', '<cmd>FineCmdline<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<<>', '<cmd>w<CR>', { noremap = true })

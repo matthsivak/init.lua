@@ -34,10 +34,12 @@ return require('packer').startup(function(use)
 
 
   -- BROWSER
-  --use {
-  --'glacambre/firenvim',
-  --run = function() vim.fn['firenvim#install'](0) end
-  --}
+  use {
+    'glacambre/firenvim',
+    run = function() vim.fn['firenvim#install'](0) end
+  }
+
+  use "xiyaowong/transparent.nvim"
 
   -- NAVIGATION
   use {
@@ -55,12 +57,50 @@ return require('packer').startup(function(use)
     requires = { { 'nvim-lua/plenary.nvim' } }
   }
 
+  use {
+    'ThePrimeagen/harpoon',
+    requires = {
+      "nvim-lua/plenary.nvim"
+    }
+  }
+
+  use({
+    "epwalsh/obsidian.nvim",
+    tag = "*", -- recommended, use latest release instead of latest commit
+    requires = {
+      -- Required.
+      "nvim-lua/plenary.nvim",
+
+      -- see below for full list of optional dependencies 👇
+    },
+    config = function()
+      require("obsidian").setup({
+        workspaces = {
+          {
+            name = "personal",
+            path = "/Users/mattsivak/Library/Mobile Documents/iCloud~md~obsidian/Documents/ŠKOLA/",
+          },
+          {
+            name = "work",
+            path = "/Users/mattsivak/Library/Mobile Documents/iCloud~md~obsidian/Documents/MAIN/",
+          },
+        },
+      })
+    end,
+  })
 
   -- KEYBINDINGS
   use "folke/which-key.nvim"
 
   -- VISUAL
   use { 'stevearc/dressing.nvim' }
+
+  use({
+    "iamcco/markdown-preview.nvim",
+    run = "cd app && npm install",
+    setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
+    ft = { "markdown" },
+  })
 
   use {
     'VonHeikemen/fine-cmdline.nvim',
@@ -78,6 +118,11 @@ return require('packer').startup(function(use)
     'goolord/alpha-nvim',
     requires = { 'nvim-tree/nvim-web-devicons' },
   }
+
+  use({
+    "folke/drop.nvim",
+    event = "VimEnter",
+  })
 
   use 'rcarriga/nvim-notify'
 
@@ -115,15 +160,15 @@ return require('packer').startup(function(use)
     "windwp/nvim-autopairs",
   }
 
-  use "preservim/nerdcommenter"
-
   use 'mbbill/undotree'
+
+  use {
+    "github/copilot.vim",
+  }
 
   -- RANDOM
 
   use 'echasnovski/mini.nvim'
-
-  -- DEPENDENCIES
 
   -- MUST BE AT A BOTTOM!!!
   if packer_bootstrap then

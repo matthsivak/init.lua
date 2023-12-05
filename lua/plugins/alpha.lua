@@ -58,22 +58,6 @@ local function button(sc, txt, keybind, keybind_opts)
   }
 end
 
-local buttons = {
-  type = "group",
-  val = {
-    button("e", "New file", "<cmd>ene<CR>"),
-    button("SPC f f", "Find File"),
-    button("SPC f b", "Find Buffer"),
-    button("SPC f e", "Neo Tree"),
-    button("SPC f u", "Undo Tree"),
-    button("SPC f r", "Recent", ":Telescope oldfiles<CR>"),
-    button("q", "Quit NVIM", ":qa<CR>"),
-  },
-  opts = {
-    spacing = 1,
-  },
-}
-
 local fortune = require("alpha.fortune")
 
 local config = {
@@ -88,8 +72,6 @@ local config = {
         hl = "Number",
       },
     },
-    { type = "padding", val = 2 },
-    buttons,
   },
   opts = {
     margin = 5,
@@ -103,4 +85,3 @@ alpha.setup(config)
 vim.cmd([[
     autocmd FileType alpha setlocal nofoldenable
 ]])
-
